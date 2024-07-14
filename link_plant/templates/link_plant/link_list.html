@@ -10,6 +10,8 @@
                 <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">URL</th>
                 <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Profile</th>
                 <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Edit</th>
+                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Delete</th>
+
             </tr>
         </thead>
         <tbody>
@@ -25,11 +27,15 @@
                     </a>
                 </td>
                 <td class="px-4 py-3">{{link.profile.name}}</td>
-                <td class="px-4 py-3 underline text-blue-600"><a href="">Edit</a></td>
+                <td class="px-4 py-3 underline text-blue-600"><a href="{% url 'link-update' link.id %}">Edit</a></td>
+                <td class="px-4 py-3 underline text-red-400"><a href="{% url 'link-delete' link.id %}">Delete</a></td>
+
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <p class="mt-6 py-2 w-full border rounded border-gray-400 text-center text-gray-500 hover:currentColor">Add New +</p>
+    <a href="{% url 'link-create' %}">
+        <p class="mt-6 py-2 w-full border rounded border-gray-400 text-center text-gray-500 hover:currentColor">Add New +</p>
+    </a>
 </div>
 {% endblock content %}
